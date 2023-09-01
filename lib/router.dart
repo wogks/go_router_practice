@@ -4,6 +4,7 @@ import 'package:gorout/screens/2_named_screen.dart';
 import 'package:gorout/screens/3_push_screen.dart';
 import 'package:gorout/screens/4_pop_base_screen.dart';
 import 'package:gorout/screens/5_pop_return_screen.dart';
+import 'package:gorout/screens/6_path_param_screen.dart';
 import 'package:gorout/screens/root_screen.dart';
 
 final router = GoRouter(
@@ -37,6 +38,19 @@ final router = GoRouter(
             ),
           ],
         ),
+        GoRoute(
+            path: 'path_param/:id',
+            builder: (context, state) {
+              return PathParamScreen();
+            },
+            routes: [
+              GoRoute(
+                path: ':name',
+                builder: (context, state) {
+                  return PathParamScreen();
+                },
+              )
+            ]),
       ],
     ),
   ],
